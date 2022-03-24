@@ -15,3 +15,12 @@ Best parameters:
 ```
 
 WATCH OUT! Run `divine-night-31` (type=`train_random_forest`) has been generated with the above command and, as expected, it provides the same results as run `denim-surf-18`, which corresponds to production model. It seems that W&B does not lineage both models.
+
+
+### 
+
+```shell
+> mlflow run https://github.com/irenerodriguez/nd0821-c2-build-model-workflow-starter.git \
+  -v 1.0.0 \
+  -P hydra_options="etl.sample='sample2.csv'"
+```
