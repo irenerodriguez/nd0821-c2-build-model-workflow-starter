@@ -7,3 +7,11 @@ Watch out! best model has been selected by setting parameters `modeling.max_tfid
 Best parameters:
 * `modeling.max_tfidf_features` = 15
 * `modeling.random_forest.max_features` = 0.5
+
+### Final test
+
+```shell
+> mlflow run . -P steps=all
+```
+
+WATCH OUT! Run `divine-night-31` (type=`train_random_forest`) has been generated with the above command and, as expected, it provides the same results as run `denim-surf-18`, which corresponds to production model. It seems that W&B does not lineage both models.
