@@ -14,6 +14,15 @@ logger = logging.getLogger()
 
 def go(args):
 
+    """
+    Function to perform basic data cleaning and export results
+
+    Parameters
+    ----------
+        args: command line parameters
+
+    """
+
     run = wandb.init(job_type="basic_cleaning")
     run.config.update(args)
 
@@ -65,6 +74,11 @@ def go(args):
 
 
 if __name__ == "__main__":
+
+    """
+    Entry point expecting parameters: input_artifact, output_artifact, output_type, output_description,
+    min_price, max_price
+    """
 
     parser = argparse.ArgumentParser(description="A very basic data cleaning")
 
