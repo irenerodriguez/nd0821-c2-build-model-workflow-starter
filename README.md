@@ -30,6 +30,7 @@ In this project you will build such a pipeline.
   * [Release the pipeline](#release-the-pipeline)
   * [Train the model on a new data sample](#train-the-model-on-a-new-data-sample)
 - [Cleaning up](#cleaning-up)
+- [Submission](#submission)
 
 ## Preliminary steps
 ### Fork the Starter kit
@@ -574,3 +575,31 @@ you have trained your new model on the new data.
 ## License
 
 [License](LICENSE.txt)
+
+## Submission
+### Links to W&B and Github
+* W&B project: https://wandb.ai/irenerodriguez/nyc_airbnb/
+* Github repository: https://github.com/irenerodriguez/nd0821-c2-build-model-workflow-starter.git
+
+Watch out! best model has been selected by setting parameters `modeling.max_tfidf_features` to 10, 15 and 30, and `modeling.random_forest.max_features` to 0.1, 0.33, 0.5, 0.75, 1.
+
+Best parameters:
+* `modeling.max_tfidf_features` = 15
+* `modeling.random_forest.max_features` = 0.5
+
+### Final test
+
+```shell
+> mlflow run . -P steps=all
+```
+
+WATCH OUT! Run `divine-night-31` (type=`train_random_forest`) has been generated with the above command and, as expected, it provides the same results as run `denim-surf-18`, which corresponds to production model. It seems that W&B does not lineage both models.
+
+
+### Run release with MLFlow on new data (after fixing cleaning data for proper geolocation)
+
+```shell
+> mlflow run https://github.com/irenerodriguez/nd0821-c2-build-model-workflow-starter.git \
+  -v 1.0.1 \
+  -P hydra_options="etl.sample='sample2.csv'"
+```
